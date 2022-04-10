@@ -38,7 +38,7 @@ const getCityCoords = city => {
 };
 
 const addCityButton = (cityName, cLat, cLon) => {
-    let cityButtons = `<p class= "btn btn-block btn-secondary text-dark font-weight-bold" onclick="generateCards('${cityName}', ${cLat}, ${cLon})">${cityName}</p>`
+    let cityButtons = `<p class= "btn btn-block btn-light text-dark font-weight-bold" onclick="generateCards('${cityName}', ${cLat}, ${cLon})">${cityName}</p>`
 
     document.getElementById("cityListings").innerHTML += cityButtons
 };
@@ -64,7 +64,8 @@ const generateCards = (name, lat, lon) => {
             if (response.ok) {
             response.json().then((data) => {
                 console.log(data);
-                primaryCard(name, currentDay, data.current.weather[0].icon, data.current.temp, data.current.wind_speed, data.current.humidity, data.current.uvi);
+                let current = data.current;
+                primaryCard(name, currentDay, current.weather[0].icon, current.temp, current.wind_speed, current.humidity, current.uvi);
 
             });
             } else {
@@ -83,6 +84,10 @@ const primaryCard = (city, date, emoji, temp, wind, humidity, uv) => {
                   `<p class="humidity">Humidity: ${humidity}</p>` +
                   `<p id="uvIndex">UV Index: ${uv}</p>`;
     document.getElementById("currentCity").innerHTML = primary;
+};
+
+const generateDeck = (data) => {
+
 };
 
 storageInit();
