@@ -41,7 +41,7 @@ const getCityCoords = city => {
 
 const addCityButton = (cityName, cLat, cLon) => {
     let cityButtons = '';
-    cityButtons = `<p class= "btn btn-block btn-secondary text-dark font-weight-bold" onclick="generateCards(${cLat, cLon})">${cityName}</p>`
+    cityButtons = `<p class= "btn btn-block btn-secondary text-dark font-weight-bold" onclick="generateCards(${cLat}, ${cLon})">${cityName}</p>`
 
     document.getElementById("cityListings").innerHTML += cityButtons
 };
@@ -59,7 +59,7 @@ const storageInit = () => {
     });
 };
 
-generateCards = (lat, lon) => {
+const generateCards = (lat, lon) => {
     let oneCallAPI = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=minutely,hourly,alerts&appid=${apiKey}`;
 
     fetch(oneCallAPI)
@@ -67,7 +67,7 @@ generateCards = (lat, lon) => {
             if (response.ok) {
             console.log(response);
             response.json().then(function (data) {
-                console.log(data);
+                    ;
             });
             } else {
             alert('Error: ' + response.statusText);
