@@ -24,7 +24,7 @@
                   <form id="city-form">
                     <div class="form-group row">
                       <div class="col-12">
-                        <input type="text" class="form-control" id="city-name" />
+                        <input type="text" class="form-control" autofocus="true" name="cityName" id="cityName" />
                       </div>
                     </div>
                     <div class="form-group">
@@ -41,11 +41,11 @@
                 <div class= "col-12 col-md-9 ">
                     <div class="row col-12">
                         <div id="currentCity" class="card col-12 p-4">
-                            <h2 class="font-weight-bold card-title">${city} ${date} {weatherEmoji}</h2>
-                            <p>Temp: ${temp}</p>
-                            <p>Wind: ${wind}</p>
-                            <p>Humidity: ${humidity}</p>
-                            <p>UV Index: ${colorChange(uvIndex)}</p>
+                            <h2 class="font-weight-bold card-title date">${city} ${date} {weatherEmoji}</h2>
+                            <p class="temp">Temp: ${temp}</p>
+                            <p class="wind">Wind: ${wind}</p>
+                            <p class="humidity">Humidity: ${humidity}</p>
+                            <p id="uvIndex">UV Index: ${colorChange(uvIndex)}</p>
                         </div>
                         <div id="fiveDay" class="col-12 row card-deck p-4">
                             <div class="row col-12">
@@ -53,48 +53,12 @@
                             </div>
                             <div class="row col-12">
                                 <div class="card bg-dark text-white p-3">
-                                    <h3 class="font-weight-bold">${date++}</h3>
+                                    <h3 class="font-weight-bold date">${date++}</h3>
                                     <div class="card-body">
                                         <p>{weatherEmoji}</p>
-                                        <p>Temp: ${temp}</p>
-                                        <p>Wind: ${wind}</p>
-                                        <p>Humidity: ${humidity}</p>
-                                    </div>
-                                </div>
-                                <div class="card bg-dark text-white p-3">
-                                    <h3 class="font-weight-bold">${date++}</h3>
-                                    <div class="card-body">
-                                        <p>{weatherEmoji}</p>
-                                        <p>Temp: ${temp}</p>
-                                        <p>Wind: ${wind}</p>
-                                        <p>Humidity: ${humidity}</p>
-                                    </div>
-                                </div>
-                                <div class="card bg-dark text-white p-3">
-                                    <h3 class="font-weight-bold">${date++}</h3>
-                                    <div class="card-body">
-                                        <p>{weatherEmoji}</p>
-                                        <p>Temp: ${temp}</p>
-                                        <p>Wind: ${wind}</p>
-                                        <p>Humidity: ${humidity}</p>
-                                    </div>
-                                </div>
-                                <div class="card bg-dark text-white p-3">
-                                    <h3 class="font-weight-bold">${date++}</h3>
-                                    <div class="card-body">
-                                        <p>{weatherEmoji}</p>
-                                        <p>Temp: ${temp}</p>
-                                        <p>Wind: ${wind}</p>
-                                        <p>Humidity: ${humidity}</p>
-                                    </div>
-                                </div>
-                                <div class="card bg-dark text-white p-3">
-                                    <h3 class="font-weight-bold">${date++}</h3>
-                                    <div class="card-body">
-                                        <p>{weatherEmoji}</p>
-                                        <p>Temp: ${temp}</p>
-                                        <p>Wind: ${wind}</p>
-                                        <p>Humidity: ${humidity}</p>
+                                        <p class="temp">Temp: ${temp}</p>
+                                        <p class="wind">Wind: ${wind}</p>
+                                        <p class="humidity">Humidity: ${humidity}</p>
                                     </div>
                                 </div>
                             </div>
