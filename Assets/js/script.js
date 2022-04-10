@@ -1,6 +1,7 @@
 const apiKey = "c9d1090231da8c08f865778a5c890e64";
 const cityForm = document.querySelector('#city-form');
 const oneCallURL = "https://api.openweathermap.org/data/2.5/onecall?";
+const citiesList = document.getElementById(cityListings);
 
 
 const formSubmitHandler = event => {
@@ -39,7 +40,17 @@ const getCityCoords = city => {
         });
 };
 
-const addCityButton = city =>
+const addCityButton = cityName => {
+    checkStorage(cityName);
     
+};
+
+
+const checkStorage = cityName => {
+    let cities = localStorage.getItem("cities").split(',') ?? [];
+    cities.push(cityName);
+    localStorage.setItem("cities", cities.join(',')); 
+};
+
 
 cityForm.addEventListener('submit', formSubmitHandler);
