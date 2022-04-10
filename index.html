@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./Assets/css/style.css">
+    <title>Weather Dashboard</title>
+</head>
+<body class="container-fluid vw-100 min-vh-100" >
+    <header class="jumbotron jumbotron-fluid bg-info bg text-light">
+        <div class="container text-center">
+            <h1 class="font-weight-bolder">
+                Weather Dashboard
+            </h1>
+        </div>            
+    </header>
+    <main class="container container-fluid align-items-stretch col-12 justify-content-around ">
+        <section class="row justify-content-between col-12 ">
+                <div class= "col-12 col-md-3">
+                  <h2 class="card-header" >Search for a City:</h2>
+                  <br />
+                  <form id="city-form">
+                    <div class="form-group row">
+                      <div class="col-12">
+                        <input type="text" class="form-control" id="city-name" />
+                      </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" value="Submit" class="btn btn-primary btn-block">
+                        Submit
+                        </button>
+                    </div>
+                  </form>
+                  <br />
+                  <div id="cityListings" class="" >
+                      <p class= "btn btn-block btn-secondary text-dark font-weight-bold" onclick="primaryCard()">${cityList}</p>
+                  </div>
+                </div>
+                <div class= "col-12 col-md-9 ">
+                    <div class="row col-12">
+                        <div id="currentCity" class="card col-12 p-4">
+                            <h2 class="font-weight-bold card-title">${city} ${date} {weatherEmoji}</h2>
+                            <p>Temp: ${temp}</p>
+                            <p>Wind: ${wind}</p>
+                            <p>Humidity: ${humidity}</p>
+                            <p>UV Index: ${colorChange(uvIndex)}</p>
+                        </div>
+                        <div id="fiveDay" class="col-12 row card-deck p-4">
+                            <div class="row col-12">
+                                <h3 class="card-title">5 Day Forecast:</h3>
+                            </div>
+                            <div class="row col-12">
+                                <div class="card bg-dark text-white p-3">
+                                    <h3 class="font-weight-bold">${date++}</h3>
+                                    <div class="card-body">
+                                        <p>{weatherEmoji}</p>
+                                        <p>Temp: ${temp}</p>
+                                        <p>Wind: ${wind}</p>
+                                        <p>Humidity: ${humidity}</p>
+                                    </div>
+                                </div>
+                                <div class="card bg-dark text-white p-3">
+                                    <h3 class="font-weight-bold">${date++}</h3>
+                                    <div class="card-body">
+                                        <p>{weatherEmoji}</p>
+                                        <p>Temp: ${temp}</p>
+                                        <p>Wind: ${wind}</p>
+                                        <p>Humidity: ${humidity}</p>
+                                    </div>
+                                </div>
+                                <div class="card bg-dark text-white p-3">
+                                    <h3 class="font-weight-bold">${date++}</h3>
+                                    <div class="card-body">
+                                        <p>{weatherEmoji}</p>
+                                        <p>Temp: ${temp}</p>
+                                        <p>Wind: ${wind}</p>
+                                        <p>Humidity: ${humidity}</p>
+                                    </div>
+                                </div>
+                                <div class="card bg-dark text-white p-3">
+                                    <h3 class="font-weight-bold">${date++}</h3>
+                                    <div class="card-body">
+                                        <p>{weatherEmoji}</p>
+                                        <p>Temp: ${temp}</p>
+                                        <p>Wind: ${wind}</p>
+                                        <p>Humidity: ${humidity}</p>
+                                    </div>
+                                </div>
+                                <div class="card bg-dark text-white p-3">
+                                    <h3 class="font-weight-bold">${date++}</h3>
+                                    <div class="card-body">
+                                        <p>{weatherEmoji}</p>
+                                        <p>Temp: ${temp}</p>
+                                        <p>Wind: ${wind}</p>
+                                        <p>Humidity: ${humidity}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>        
+                </div>
+        </section>   
+    </main>
+    <script src="./Assets/js/script.js"></script>
+</body>
+</html>
