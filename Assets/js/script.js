@@ -94,7 +94,7 @@ const createPrimaryCard = (city, date, emoji, temp, wind, humidity, uv) => {
                   `<p class="temp">Temp: ${temp}&deg; F</p>` +
                   `<p class="wind">Wind: ${wind} MPH</p>` +
                   `<p class="humidity">Humidity: ${humidity}</p>` +
-                  `<p>UV Index: <span id="uvIndex" class="text-white btn">${uv}</span></p>`;
+                  `<p>UV Index: <span id="uvIndex" class="text-white badge p-2">${uv}</span></p>`;
     document.getElementById("currentCity").innerHTML = primary;
 };
 
