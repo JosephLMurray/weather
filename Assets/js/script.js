@@ -91,8 +91,8 @@ const generateCards = (name, lat, lon) => {
 
 const createPrimaryCard = (city, date, emoji, temp, wind, humidity, uv) => {
     const primary = `<h2 class="font-weight-bold card-title date">${city} (${date}) <img id="wicon" src="http://openweathermap.org/img/w/${emoji}.png" alt="Weather icon"></h2>` +
-                  `<p class="temp">Temp: ${temp}</p>` +
-                  `<p class="wind">Wind: ${wind}</p>` +
+                  `<p class="temp">Temp: ${temp}&deg; F</p>` +
+                  `<p class="wind">Wind: ${wind} MPH</p>` +
                   `<p class="humidity">Humidity: ${humidity}</p>` +
                   `<p>UV Index: <span id="uvIndex" class="text-white btn">${uv}</span></p>`;
     document.getElementById("currentCity").innerHTML = primary;
@@ -107,8 +107,8 @@ const generateDeck = (data) => {
                                 `<h3 class="font-weight-bold date">${mm + '/' + String(today.getDate() + parseInt([i]) + 1).padStart(2, '0') + '/' + yyyy}</h3>` +
                                 `<div class="card-body">` +
                                     `<p><img id="wicon" src="http://openweathermap.org/img/w/${data[i].weather[0].icon}.png" alt="Weather icon"></p>` +
-                                    `<p class="temp">Temp: ${data[i].temp.day}</p>` +
-                                    `<p class="wind">Wind: ${data[i].wind_speed}</p>` +
+                                    `<p class="temp">Temp: ${data[i].temp.day}&deg; F</p>` +
+                                    `<p class="wind">Wind: ${data[i].wind_speed} MPH</p>` +
                                     `<p class="humidity">Humidity: ${data[i].humidity}</p>` +   
                                 `</div>` +
                             `</div>` +
