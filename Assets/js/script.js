@@ -20,7 +20,7 @@ const formSubmitHandler = event => {
   };
 
 const getCityCoords = city => {
-    const geoAPI = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`
+    const geoAPI = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`
 
     fetch(geoAPI)
         .then((response) => {
