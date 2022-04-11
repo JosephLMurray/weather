@@ -1,6 +1,10 @@
 const apiKey = "c9d1090231da8c08f865778a5c890e64";
 const cityForm = document.querySelector('#city-form');
-const currentDay = moment().format('L');
+const today = new Date();
+const dd = String(today.getDate()).padStart(2, '0');
+const mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+const yyyy = today.getFullYear();
+const currentDay = mm + '/' + dd + '/' + yyyy;
 
 const formSubmitHandler = event => {
     event.preventDefault();
@@ -66,7 +70,7 @@ const generateCards = (name, lat, lon) => {
                 console.log(data);
                 let current = data.current;
                 primaryCard(name, currentDay, current.weather[0].icon, current.temp, current.wind_speed, current.humidity, current.uvi);
-
+                generateDeck(data.daily);
             });
             } else {
             alert('Error: ' + response.statusText);
@@ -87,7 +91,22 @@ const primaryCard = (city, date, emoji, temp, wind, humidity, uv) => {
 };
 
 const generateDeck = (data) => {
-
+    let fiveDayCards = '';
+    document.getElementById("fiveDay").innerHTML = fiveDayCards;
+    for (let i = 0; i < 5; i++) {
+        fiveDayCards += `<div class="">` +
+                        `<div class="card bg-dark text-white p-3">` +
+                        `<h3 class="font-weight-bold date">${mm + '/' + String(today.getDate() + parseInt([i])).padStart(2, '0') + '/' + yyyy}</h3>` +
+                        `<div class="card-body">` +
+                        `<p><img id="wicon" src="http://openweathermap.org/img/w/${data[i].weather[0].icon}.png" alt="Weather icon"></p>` +
+                        `<p class="temp">Temp: ${data[i].temp.day}</p>` +
+                        `<p class="wind">Wind: ${data[i].wind_speed}</p>` +
+                        `<p class="humidity">Humidity: ${data[i].humidity}</p>` +   
+                        `</div>` +
+                        `</div>` +
+                        `</div>`
+    }
+    document.getElementById("fiveDay").innerHTML += fiveDayCards;
 };
 
 storageInit();
